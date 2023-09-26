@@ -1,0 +1,50 @@
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #966ed6;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+}
+
+/* Main Content Styles */
+.text-center {
+    text-align: center;
+}
+
+/* Button Styles */
+.btn-lg {
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+.logo-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#logo {
+    width: 5%; 
+    height: 5%; /* the same as width to maintain aspect ratio */
+    display: block;
+    margin: 0 auto 20px auto; /* top and bottom margin 0, left and right margin auto */
+}
+

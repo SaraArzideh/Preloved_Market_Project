@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PreLoved_Market</title>
+        <!-- Adding Bootstrap CSS CDN -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Linking to the styles.CSS file -->
+        <link rel="stylesheet" href="/static/css/styles.css">
+    </head>
+    
+    <body>
+        <header>
+        </header>
+        <div class="container mt-5">
+            <!-- Add the logo image here -->
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Website Logo" id="logo">
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Logo</a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('signup_login') }}">SignUp/Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    
+            <!-- Main Content -->
+            <div class="text-center">
+                <h1>Swap Your Treasures:</h1>
+                <h2>Discover New Reads and Playtime Adventures!</h2>
+                <p>===========================</p>           
+                <h2>Begin Your Journey!</h2>
+    
+                <!-- Options Buttons -->
+                <div class="mt-4">
+                    <a href="{{ url_for('buy_sell') }}" class="btn btn-primary btn-lg mr-2">Begin</a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Adding Bootstrap JS CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="/static/js/script.js"></script>
+
+</body>
+</html>

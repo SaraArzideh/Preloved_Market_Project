@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SignUp/Login</title>
+        <!-- Include Bootstrap CSS from a CDN -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Linking to the styles.CSS file -->
+        <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+        <div class="container mt-5">
+            <!-- SignUp Form -->
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>SignUp</h2>
+                    <form action="{{ url_for('signup') }}" method="post">
+                        <div class="form-group">
+                            <label for="signupName">Name:</label>
+                            <input type="text" class="form-control" id="signupName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupEmail">Email:</label>
+                            <input type="email" class="form-control" id="signupEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPassword">Password:</label>
+                            <input type="password" class="form-control" id="signupPassword" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">SignUp</button>
+                    </form>
+                </div>
+                
+                <!-- Login Form -->
+                <div class="col-md-6">
+                    <h2>Login</h2>
+                    <form action="{{ url_for('login') }}" method="post">
+                        <div class="form-group">
+                            <label for="loginEmail">Email:</label>
+                            <input type="email" class="form-control" id="loginEmail" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password:</label>
+                            <input type="password" class="form-control" id="loginPassword" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-success">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Include Bootstrap JS and dependencies from a CDN -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="/static/js/script.js"></script>
+</body>
+</html>
