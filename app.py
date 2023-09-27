@@ -47,5 +47,15 @@ def signup():
     session['user'] = username  # Store the username in the session
     return redirect(url_for('index'))
 
+@app.route('/view_products')
+def view_products():
+    # Fetch the products from the database.
+    # This is just a placeholder. Replace with actual database query.
+    products = [
+        {'name': 'Product 1', 'description': 'Description 1'},
+        {'name': 'Product 2', 'description': 'Description 2'}
+    ]
+    return render_template('view_products.html', products=products)
+
 if __name__ == '__main__':
     app.run(debug=True)
