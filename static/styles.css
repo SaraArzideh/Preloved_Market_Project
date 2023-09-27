@@ -7,19 +7,24 @@
 /* Importing Lily Script One Font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap');
 
-/* Reset some styles */
-
-/* Global Styles */
 body {
-    font-family: 'Lily Script One', cursive; /* Applying the custom font */
-    background-color: #c6a87f; /* Changing the background color */
+    font-family: Arial, sans-serif;
+    background-color: #7fa0f3; /* Changing the background color */
     line-height: 1.6;
     padding-top: 20px; /* Providing some space from top */
 }
 
+body {
+    background-image: url('../static/images/background2.png');
+    background-size: cover; /* to cover the entire viewport */
+    background-repeat: no-repeat; /* to prevent the image from repeating */
+    background-position: center center; /* to center the image */
+    background-attachment: fixed; /* to fix the position of background image */
+}
+
 /* Header Styles */
 .header {
-    background-color: #ffffff;
+    background-color:#a3b7ec;
     padding: 12px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -28,7 +33,7 @@ body {
 }
 
 .header .nav-link {
-    color: #007bff;
+    color: #5c39e6;
     text-decoration: none;
     font-weight: bold;
     padding: 8px 16px;
@@ -37,13 +42,13 @@ body {
 }
 
 .header .nav-link:hover {
-    background-color: #007bff;
-    color: white;
+    background-color: #5c39e6;
+    color:#7fa0f3;
 }
 
 /* Form Styles */
 form {
-    background-color: #ffffff;
+    background-color:#a3b7ec;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -57,14 +62,14 @@ form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px; /* Space below each input field */
-    border: 1px solid #ddd;
+    border: 1px solid #7fa0f3;
     border-radius: 3px;
 }
 
 form button[type="submit"] ,
 .card .btn {
-    background-color: #6F4E37; /* Coffee color for the buttons */
-    color: white;
+    background-color: #5c39e6; /* Coffee color for the buttons */
+    color:#7fa0f3;
     padding: 10px 20px;
     border: none;
     border-radius: 3px;
@@ -74,20 +79,20 @@ form button[type="submit"] ,
 
 form button[type="submit"]:hover ,
 .card .btn:hover {
-    background-color: #5d3c29; /* Darker coffee color for hover effect */
+    background-color: #5c39e6; /* Darker coffee color for hover effect */
 }
 
 /* Product Card Styles */
 .card {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
+    background-color:#7fa0f3;
+    border: 1px solid#7fa0f3;
     border-radius: 5px;
     margin-bottom: 20px; /* Space below each card */
 }
 
 .card img {
     max-width: 100%;
-    border-bottom: 1px solid #ddd; /* Line between image and content */
+    border-bottom: 1px solid #7fa0f3; /* Line between image and content */
 }
 
 .card-body {
@@ -104,8 +109,8 @@ form button[type="submit"]:hover ,
 }
 
 .card .btn {
-    background-color: #007bff;
-    color: white;
+    background-color: #5c39e6;
+    color: #7fa0f3;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 3px;
@@ -113,11 +118,21 @@ form button[type="submit"]:hover ,
 }
 
 .card .btn:hover {
-    background-color: #0056b3;
+    background-color:  #5c39e6;
 }
-#logo {
+#index-logo {
     width: 20%; 
     height: 20%; /* the same as width to maintain aspect ratio */
     display: block;
     margin: 0 auto 20px auto; /* top and bottom margin 0, left and right margin auto */
+}
+
+.btn-primary {
+    background-color: #5c39e6; /* This is a saddle brown color. */
+    color: #7fa0f3; /* This is the text color. */
+    border: none; /* This removes the border. */
+}
+#other-logo {
+    width: 10%; 
+    margin-right:30px;
 }

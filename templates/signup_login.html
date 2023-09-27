@@ -10,6 +10,11 @@
         <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
+    <div class="header">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Website Logo" id="other-logo">
+        <a href="/" class="nav-link">Home</a>
+    </div>
+    <div class="main-content">
         <div class="container mt-5">
             <!-- SignUp Form -->
             <div class="row">
@@ -49,7 +54,7 @@
                 </div>
             </div>
         </div>
-        
+    </div>     
         <!-- Include Bootstrap JS and dependencies from a CDN -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
