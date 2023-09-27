@@ -6,17 +6,22 @@ div {
 
 .button {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 15px;
     font-size: 16px;
+    color: #a16daf;
+    background-color: #e67e22;
     color: #fff;
-    background-color: #966ed6;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 body {
     font-family: Arial, sans-serif;
+    background-color:#f8f8f8;
+    color: #333;
+    line-height: 1.6;
 }
 
 /* Navigation Bar Styles */
@@ -48,3 +53,74 @@ body {
     margin: 0 auto 20px auto; /* top and bottom margin 0, left and right margin auto */
 }
 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the header/navigation bar */
+.header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Style for the navigation links */
+.nav-link {
+    color: #fff;
+    padding: 15px 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Change color on hover for navigation links */
+.nav-link:hover {
+    background-color: #34495e;
+}
+
+/* Style the main content area */
+.main-content {
+    padding: 20px;
+}
+
+/* Style for product cards */
+.card {
+    background-color: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Change color on hover for buttons */
+.btn:hover {
+    background-color: #d35400;
+}
+
+/* Style for the header */
+.header {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 12px 20px; /* Padding around the header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for 3D effect */
+    display: flex; /* Align the links in a row */
+    justify-content: space-between; /* Distribute space equally between the links */
+}
+
+/* Style for the links in the header */
+.header .nav-link {
+    color: #007bff; /* Blue color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold font */
+    padding: 8px 16px; /* Padding around the links */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Change background color when hovering over the links */
+.header .nav-link:hover {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+}
