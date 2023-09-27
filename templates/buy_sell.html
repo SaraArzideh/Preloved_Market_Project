@@ -33,7 +33,7 @@
         <div>
             <h2>Sell Your Product</h2>
             <!-- The form action is backend endpoint for handling the selling request -->
-            <form action="{{ url_for('buy_sell') }}" method="post">
+            <form action="{{ url_for('submit_product') }}" method="post">
                 <!-- Product Name -->
                 <div class="mb-3">
                     <label for="productName" class="form-label">Product Name</label>
@@ -45,7 +45,10 @@
                     <textarea class="form-control" id="productDescription" name="productDescription" rows="5" required></textarea>
                 </div>
                 <!-- submit button -->
-                <button type="submit" class="btn btn-primary">Submit</button>
+                {% if not logged_in %}
+                    <p>To submit your products, Please log in!</p>
+                {% endif %}
+                <button type="submit" {% if not logged_in %}disabled{% endif %} class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>

@@ -1,10 +1,10 @@
 # pip install -r requierments.txt
 
 
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 
 app = Flask(__name__)
-app.secret_key='your_secret_key' # set a secret key for session management
+app.secret_key='some-secret!' # set a secret key for session management
 
 @app.route('/')
 def index():
@@ -56,6 +56,17 @@ def view_products():
         {'name': 'Product 2', 'description': 'Description 2'}
     ]
     return render_template('view_products.html', products=products)
+
+@app.route('/submit_product', methods=['POST'])
+def submit_product():
+    if 'username' in session:  # use 'username' to check if a user is logged in.
+        # Handle the product submission.
+        # Save the product to the database.
+        flash("Products submitted successfully. To see your products, View Available Products!")
+        return redirect(url_for('buy_sell'))
+    else:
+        flash("To submit your products, Please log in!")
+        return redirect(url_for('signup_login'))
 
 if __name__ == '__main__':
     app.run(debug=True)
