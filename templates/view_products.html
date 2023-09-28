@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-warning" role="alert">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
     <div class="header">
         <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Website Logo" id="other-logo">
         <!-- Setting different navigation for different user status -->
@@ -23,19 +30,23 @@
     </div>
     <div class="container mt-4">
         <h2>Available Products</h2>
-        {% for product in products %}
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">{{ product.name }} is submitted by {{ product.submitter }}</h5>
-                    <p class="card-text">{{ product.description }}</p>
-                    <p>Price: {{ product.price }}</p>
-                    <img src="{{ url_for('static', filename='images/' + product.image) }}" class="card-img-top" alt="{{ product.name }}" style="max-width: 100px; max-height: 100px;"></image>
-                    {% if 'user' in session %}
-                        <p>Contact Information: {{ product.contact_info }}</p>
-                    {% endif %}
-                </div>
-            </div>
-        {% endfor %}
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            {% for product in products %}
+                <div class="col">
+                    <div class="card">
+                        <img src="{{ url_for('static', filename='images/' + product.image) }}" class="card-img-top" alt="{{ product.name }}" style="max-width: 100px; max-height: 100px;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }} is submitted by {{ product.submitter }}</h5>
+                            <p class="card-text">{{ product.description }}</p>
+                            <p>Price: {{ product.price }}</p>
+                            {% if 'user' in session %}
+                                <p>Contact Information: {{ product.contact_info }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>        
+            {% endfor %}
+        </div>
     </div>
    
 </body>

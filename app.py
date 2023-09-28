@@ -1,6 +1,6 @@
 # pip install -r requierments.txt
 
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, url_for, session, flash, get_flashed_messages
 from datetime import timedelta
 import os
 
@@ -67,7 +67,7 @@ def submit_product():
         with open('static/products.txt', 'a') as file:
             file.write(f'{session["user"]}|{product_name}|{product_description}|{contact_info}|{image.filename}|{price}\n')
 
-        flash("Products submitted successfully. To see your products, View Available Products!")
+        flash("Your Product submitted successfully. View Available Products!")
         return redirect(url_for('buy_sell'))
     else:
         flash("You must be logged in to submit a product!")
