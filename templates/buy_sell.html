@@ -52,10 +52,16 @@
                     <textarea class="form-control" id="productDescription" name="productDescription" rows="3" required></textarea>
                 </div>
                 <!-- submit button -->
-                {% if not logged_in %}
-                    <p>To submit your products, Please log in!</p>
-                {% endif %}
-                <button type="submit" {% if not logged_in %}disabled{% endif %} class="btn btn-primary">Submit</button>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul class=flashes>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+                <button type="submit">Submit</button>
             </form>
         </div>
     </div>

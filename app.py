@@ -26,11 +26,6 @@ def buy_sell():
 
 @app.route('/signup_login.html', methods=['GET', 'POST'])
 def signup_login():
-    
-    # Handling signup and login.
-    if request.method == 'POST':
-        # Handling signup/login
-        pass
     return render_template('signup_login.html')
 
 @app.route('/login', methods=['POST'])
@@ -43,25 +38,42 @@ def login():
 @app.route('/signup', methods=['POST'])
 def signup():
     username = request.form['username']
-    # Assume a successful login
+    email = request.form['email']
+    password = request.form['password']
+
+    with open('static/users.txt', 'a') as file:
+        file.write(f'{username},{email},{password}\n')
+
     session['user'] = username  # Store the username in the session
     return redirect(url_for('index'))
 
 @app.route('/view_products')
 def view_products():
-    # Fetch the products from the database.
-    # This is just a placeholder. Replace with actual database query.
-    products = [
-        {'name': 'Product 1', 'description': 'Description 1'},
-        {'name': 'Product 2', 'description': 'Description 2'}
-    ]
+    # Fetch the products from the products.txt.
+    products = []
+    with open('static/products.txt', 'r') as file:
+        lines = file.readlines()
+        for line in lines:
+            parts = line.strip().split('|')
+            if len(parts) == 2:  # ensure there are exactly two parts
+                product_name, product_description = parts
+                products.append({'name': product_name, 'description': product_description})
+            else:
+                print(f"Unexpected line format in products.txt: {line.strip()}")
+
+
+
     return render_template('view_products.html', products=products)
 
 @app.route('/submit_product', methods=['POST'])
 def submit_product():
-    if 'username' in session:  # use 'username' to check if a user is logged in.
-        # Handle the product submission.
-        # Save the product to the database.
+    if 'user' in session:  # checking if a user is logged in.
+        product_name = request.form['productName']
+        product_description = request.form['productDescription']
+
+        with open('static/products.txt', 'a') as file:
+            file.write(f'{product_name}|{product_description}\n')
+
         flash("Products submitted successfully. To see your products, View Available Products!")
         return redirect(url_for('buy_sell'))
     else:
