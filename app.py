@@ -54,6 +54,24 @@ def logout():
     session.pop('user', None)  # Removing the username from the session
     return redirect(url_for('index'))
 
+@app.route('/submit_product', methods=['POST'])
+def submit_product():
+    if 'user' in session:  # checking if a user is logged in.
+        product_name = request.form['productName']
+        product_description = request.form['productDescription']
+        contact_info = request.form['contactInfo']
+        image = request.files['image']
+        image.save(os.path.join('static/images', image.filename))
+        price = request.form['price']
+
+        with open('static/products.txt', 'a') as file:
+            file.write(f'{session["user"]}|{product_name}|{product_description}|{contact_info}|{image.filename}|{price}\n')
+
+        flash("Products submitted successfully. To see your products, View Available Products!")
+        return redirect(url_for('buy_sell'))
+    else:
+        flash("To submit your products, Please log in!")
+        return redirect(url_for('signup_login'))
 @app.route('/view_products')
 def view_products():
     # Fetch the products from the products.txt.
@@ -62,28 +80,20 @@ def view_products():
         lines = file.readlines()
         for line in lines:
             parts = line.strip().split('|')
-            if len(parts) == 3:  # ensuring there are exactly three parts
-                submitter, product_name, product_description = parts
-                products.append({'submitter': submitter, 'name': product_name, 'description': product_description})
+            if len(parts) == 6:  # ensuring there are exactly six parts
+                submitter, product_name, product_description, contact_info, image, price = parts
+                products.append({
+                   'submitter': submitter,
+                    'name': product_name,
+                    'description': product_description,
+                    'contact_info': contact_info, 
+                    'image': image, 
+                    'price': price 
+                })
             else:
                 print(f"Unexpected line format in products.txt: {line.strip()}")
-    
+        
     return render_template('view_products.html', products=products)
-
-@app.route('/submit_product', methods=['POST'])
-def submit_product():
-    if 'user' in session:  # checking if a user is logged in.
-        product_name = request.form['productName']
-        product_description = request.form['productDescription']
-
-        with open('static/products.txt', 'a') as file:
-            file.write(f'{session["user"]}|{product_name}|{product_description}\n')
-
-        flash("Products submitted successfully. To see your products, View Available Products!")
-        return redirect(url_for('buy_sell'))
-    else:
-        flash("To submit your products, Please log in!")
-        return redirect(url_for('signup_login'))
 
 if __name__ == '__main__':
     app.run(debug=True)

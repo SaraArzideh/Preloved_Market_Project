@@ -46,7 +46,7 @@
         <div>
             <h2>Sell Your Product</h2>
             <!-- The form action is backend endpoint for handling the selling request -->
-            <form action="{{ url_for('submit_product') }}" method="post">
+            <form action="{{ url_for('submit_product') }}" method="post" enctype="multipart/form-data">
                 <!-- Product Name -->
                 <div class="mb-3">
                     <label for="productName" class="form-label">Product Name</label>
@@ -56,6 +56,21 @@
                 <div class="mb-3">
                     <label for="productDescription" class="form-label">Product Description</label>
                     <textarea class="form-control" id="productDescription" name="productDescription" rows="3" required></textarea>
+                </div>
+                <!-- contact information -->
+                <div class="mb-3">
+                    <label for="contactInfo" class="form-label">Contact Information</label>
+                    <input type="text" class="form-control" id="contactInfo" name="contactInfo" required>
+                </div>
+                <!-- Product Image -->
+                <div class="mb-3">
+                    <label for="image" class="form-label">Product Image</label>
+                    <input type="file" class="form-control" id="image" name="image" required>
+                </div>
+                <!-- Product Price -->
+                <div class="mb-3">
+                    <label for="price" class="form-label">Product Price</label>
+                    <input type="text" class="form-control" id="price" name="price" required>
                 </div>
                 <!-- submit button -->
                 {% with messages = get_flashed_messages() %}

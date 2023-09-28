@@ -25,11 +25,15 @@
         {% for product in products %}
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
+                    <h5 class="card-title">{{ product.name }} is submitted by {{ product.submitter }}</h5>
                     <p class="card-text">{{ product.description }}</p>
-                    <p>{{ product.name }} is submitted by {{ product.submitter }}</p>
+                    <p>Price: {{ product.price }}</p>
+                    <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}" />
                 </div>
             </div>
+            {% if 'user' in session %}
+                <p>Contact Information: {{ product.contact_info }}</p>
+            {% endif %}
         {% endfor %}
     </div>
     <div class="main-content">
