@@ -12,6 +12,7 @@
 <body>
     <div class="header">
         <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Website Logo" id="other-logo">
+        <!-- Setting different navigation for different user status -->
         <a href="/" class="nav-link">Home</a>
         {% if session['user'] %}
         <a href="{{ url_for('logout') }}" class="btn btn-primary">Logout</a>
@@ -28,25 +29,14 @@
                     <h5 class="card-title">{{ product.name }} is submitted by {{ product.submitter }}</h5>
                     <p class="card-text">{{ product.description }}</p>
                     <p>Price: {{ product.price }}</p>
-                    <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}" />
+                    <img src="{{ url_for('static', filename='images/' + product.image) }}" class="card-img-top" alt="{{ product.name }}" style="max-width: 100px; max-height: 100px;"></image>
+                    {% if 'user' in session %}
+                        <p>Contact Information: {{ product.contact_info }}</p>
+                    {% endif %}
                 </div>
             </div>
-            {% if 'user' in session %}
-                <p>Contact Information: {{ product.contact_info }}</p>
-            {% endif %}
         {% endfor %}
     </div>
-    <div class="main-content">
-        <div class="container">
-            <!-- Loop through the products and display them -->
-            {% for product in products %}
-                <div class="product">
-                    <h2>{{ product.name }}</h2>
-                    <p>{{ product.description }}</p>
-                    <!-- Other product details -->
-                </div>
-            {% endfor %}
-        </div>
-    </div>    
+   
 </body>
 </html>

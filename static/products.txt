@@ -2,3 +2,4 @@
 
 
 sara|Book: Pride and Prejudice|by Jane Austen, in English, 1813|sara@code.fi|Pride.jpg|10 €
+Hanna|Book: War and Peace|by Leo Tolstoy, in English, 1869|Hanna@code.fi|war-and-peace.jpg|20 €

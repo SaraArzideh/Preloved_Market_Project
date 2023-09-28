@@ -70,7 +70,7 @@ def submit_product():
         flash("Products submitted successfully. To see your products, View Available Products!")
         return redirect(url_for('buy_sell'))
     else:
-        flash("To submit your products, Please log in!")
+        flash("You must be logged in to submit a product!")
         return redirect(url_for('signup_login'))
 @app.route('/view_products')
 def view_products():
