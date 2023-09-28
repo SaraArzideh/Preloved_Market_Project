@@ -103,10 +103,10 @@ form button[type="submit"]:hover ,
     margin-bottom: 20px; /* Space below each card */
 }
 
-.card-img-top {
+.card-img {
     max-width: 100%;
     border-bottom: 1px solid #d9dce3; /* Line between image and content */
-    border-top-left-radius: 8px;
+    border-top-left-radius: 8px; 
     border-top-right-radius: 8px;
 }
 

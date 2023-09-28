@@ -1,8 +1,4 @@
-
-
-
-sara|Book: Pride and Prejudice|by Jane Austen, in English, 1813|sara@code.fi|Pride.jpg|10 €
-Hanna|Book: War and Peace|by Leo Tolstoy, in English, 1869|Hanna@code.fi|war-and-peace.jpg|20 €
-Hamed|Chess|Portable Magnetic Chess Set with foldable Board|+358401234567|Magnetic_Chess.jpg|8 €
-Mikko|Classic Monopoly|Vintage 1935,very old classic Monopoly, with metal Tokens, NO BOARD
-|Mikko@code.fi|old monopoly.jpg|Best Offer till 24 December 2023
+sara|Book: Pride and Prejudice|by Jane Austen, in English, 1813|sara@code.fi|Pride.jpg|10 euro
+Hanna|Book: War and Peace|by Leo Tolstoy, in English, 1869|Hanna@code.fi|war-and-peace.jpg|20 euro
+Hamed|Chess|Portable Magnetic Chess Set with foldable Board|+358401234567|Magnetic_Chess.jpg|8 euros
+Mikko|Exploding Kittens|New, with English text|+358401111111|exploding-kittens.jpg|15 euros
