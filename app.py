@@ -62,9 +62,9 @@ def view_products():
         lines = file.readlines()
         for line in lines:
             parts = line.strip().split('|')
-            if len(parts) == 2:  # ensuring there are exactly two parts
-                product_name, product_description = parts
-                products.append({'name': product_name, 'description': product_description})
+            if len(parts) == 3:  # ensuring there are exactly three parts
+                submitter, product_name, product_description = parts
+                products.append({'submitter': submitter, 'name': product_name, 'description': product_description})
             else:
                 print(f"Unexpected line format in products.txt: {line.strip()}")
     
@@ -77,7 +77,7 @@ def submit_product():
         product_description = request.form['productDescription']
 
         with open('static/products.txt', 'a') as file:
-            file.write(f'{product_name}|{product_description}\n')
+            file.write(f'{session["user"]}|{product_name}|{product_description}\n')
 
         flash("Products submitted successfully. To see your products, View Available Products!")
         return redirect(url_for('buy_sell'))
