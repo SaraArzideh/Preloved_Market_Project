@@ -13,7 +13,13 @@
     <div class="header">
         <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Website Logo" id="other-logo">
         <a href="/" class="nav-link">Home</a>
-        <a href="/signup_login.html" class="nav-link">SignUp/Login</a>
+        {% if session['user'] %}
+        <a href="{{ url_for('logout') }}" class="btn btn-primary">Logout</a>
+        <span>Welcome, {{ session['user'] }}</span>
+        {% else %}
+            <a href="/signup_login.html" class="nav-link">SignUp/Login</a>
+        {% endif %}
+
     </div>
     <div class="main-content">
 

@@ -14,6 +14,15 @@
         <header>
             <div class="header">
                 <a href="/signup_login.html" class="nav-link">SignUp/Login</a>
+
+                {% if session['user'] %}
+                    <a href="{{ url_for('logout') }}" class="btn btn-primary">Logout</a>
+                    <span>Welcome, {{ session['user'] }}</span>
+                {% else %}
+                <a href="/signup_login.html" class="nav-link">SignUp/Login</a>
+                {% endif %}
+
+
             </div>
         </header>
         <div class="container mt-5">
