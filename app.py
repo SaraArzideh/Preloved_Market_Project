@@ -1,20 +1,21 @@
 # pip install -r requierments.txt
 
-
 from flask import Flask, render_template, request, redirect, url_for, session, flash
+from datetime import timedelta
+import os
 
 app = Flask(__name__)
-app.secret_key='some-secret!' # set a secret key for session management
+app.secret_key=os.urandom(24) # setting a secret key for session management
+
+app.permanent_session_lifetime = timedelta(days=1)
 
 @app.route('/')
 def index():
-    
     # Renders the home page.
     return render_template('index.html')
 
 @app.route('/buy_sell.html', methods=['GET', 'POST'])
 def buy_sell():
-    
     #Handling buying and selling products.
     if request.method == 'POST':
         if 'user'in session:
@@ -31,8 +32,9 @@ def signup_login():
 @app.route('/login', methods=['POST'])
 def login():
     username = request.form['username']
+    session.permanent = True  # making session permanent
     # Assume a successful login
-    session['user'] = username  # Store the username in the session
+    session['user'] = username  # Storing the username in the session
     return redirect(url_for('index'))
 
 @app.route('/signup', methods=['POST'])
@@ -44,7 +46,12 @@ def signup():
     with open('static/users.txt', 'a') as file:
         file.write(f'{username},{email},{password}\n')
 
-    session['user'] = username  # Store the username in the session
+    session['user'] = username  # Storing the username in the session
+    return redirect(url_for('index'))
+
+@app.route('/logout')
+def logout():
+    session.pop('user', None)  # Removing the username from the session
     return redirect(url_for('index'))
 
 @app.route('/view_products')
@@ -55,14 +62,12 @@ def view_products():
         lines = file.readlines()
         for line in lines:
             parts = line.strip().split('|')
-            if len(parts) == 2:  # ensure there are exactly two parts
+            if len(parts) == 2:  # ensuring there are exactly two parts
                 product_name, product_description = parts
                 products.append({'name': product_name, 'description': product_description})
             else:
                 print(f"Unexpected line format in products.txt: {line.strip()}")
-
-
-
+    
     return render_template('view_products.html', products=products)
 
 @app.route('/submit_product', methods=['POST'])

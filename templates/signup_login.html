@@ -14,47 +14,56 @@
         <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Website Logo" id="other-logo">
         <a href="/" class="nav-link">Home</a>
     </div>
-    <div class="main-content">
-        <div class="container mt-5">
-            <!-- SignUp Form -->
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>SignUp</h2>
-                    <form action="{{ url_for('signup') }}" method="post">
-                        <div class="form-group">
-                            <label for="signupName">Name:</label>
-                            <input type="text" class="form-control" id="signupName" name="username" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="signupEmail">Email:</label>
-                            <input type="email" class="form-control" id="signupEmail" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="signupPassword">Password:</label>
-                            <input type="password" class="form-control" id="signupPassword" name="password" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">SignUp</button>
-                    </form>
-                </div>
-                
-                <!-- Login Form -->
-                <div class="col-md-6">
-                    <h2>Login</h2>
-                    <form action="{{ url_for('login') }}" method="post">
-                        <div class="form-group">
-                            <label for="loginName">Name:</label>
-                            <input type="text" class="form-control" id="loginName" name="username" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="loginPassword">Password:</label>
-                            <input type="password" class="form-control" id="loginPassword" name="password" required>
-                        </div>
-                        <button type="submit" class="btn btn-success">Login</button>
-                    </form>
+
+    {% if session['user'] %}
+        <div class="header">
+            <p>Welcome {{ session['user'] }}!</p>
+            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+        </div>
+    {% else %}
+        <div class="main-content">
+            <div class="container mt-5">
+                <!-- SignUp Form -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>SignUp</h2>
+                        <form action="{{ url_for('signup') }}" method="post">
+                            <div class="form-group">
+                                <label for="signupName">Name:</label>
+                                <input type="text" class="form-control" id="signupName" name="username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signupEmail">Email:</label>
+                                <input type="email" class="form-control" id="signupEmail" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signupPassword">Password:</label>
+                                <input type="password" class="form-control" id="signupPassword" name="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">SignUp</button>
+                        </form>
+                    </div>
+                    
+                    <!-- Login Form -->
+                    <div class="col-md-6">
+                        <h2>Login</h2>
+                        <form action="{{ url_for('login') }}" method="post">
+                            <div class="form-group">
+                                <label for="loginName">Name:</label>
+                                <input type="text" class="form-control" id="loginName" name="username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">Password:</label>
+                                <input type="password" class="form-control" id="loginPassword" name="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-success">Login</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>     
+        </div> 
+    {% endif %}
+    
         <!-- Include Bootstrap JS and dependencies from a CDN -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
