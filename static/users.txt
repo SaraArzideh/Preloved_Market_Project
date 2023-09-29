@@ -2,3 +2,4 @@ sara,sara@code.fi,12345
 Hanna,Hanna@code.fi,54321
 Hamed,Hamed@code.fi,sara
 Mikko,Mikko@code.fi,246810
+Niina,Niina@code.fi,34567

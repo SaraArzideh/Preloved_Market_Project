@@ -1,21 +1,12 @@
-# PrelovedMarket
-# SecondHand Exchange Website
+# Preloved_Market
 
-## Description
-This is a simple second-hand exchange website where users can buy or sell items.
+## Used Books and Games Exchange Website
 
-1.	Users can sign up, log in, list items for sale with images and description text, and contact sellers for purchasing items.In home page user can select BUY, SELL, SignUp, or ChatBot.
-2.	Everyone can see the announcements of selling_products after clicking the BUY. Then user can search the website due to available categories.
-3.	for making announcements of selling_products or to see sellers contact information and buy products, user has to make an account and log in.
-4.	If user wanted to make announcement to sell product, the input data will be text and image.
-5.	for SignUp, user should give his name, email, city, and country. They are necessary information. and phone number is optional.
-6.	Users can write review or feedback about the seller and what they bought, to make profile for seller as a trusted or untrusted seller.
+![read-me40](https://github.com/SaraArzideh/Preloved_Market_Project/assets/145482976/607b4035-51a1-467d-bdaa-567143a626eb)
 
-
-## Installation
-Follow the instructions below to set up the environment and run the project locally:
-
-1. Clone the repository to your local machine:
-
-```bash
-git clone https://github.com/SaraArzideh/Sara-WebDev-Tutorials/PrelovedMarket.git
+* Browse Products: Explore a wide range of preloved books and games from various sellers.
+* Sell Your Items: Easily submit your used books and games for sale.
+* User Accounts: Create an account to buy or sell products.
+* User-Friendly Interface: A clean and intuitive interface for a seamless user experience.
+* Frontend: HTML, CSS, Bootstrap
+* Backend: Python, Flask
